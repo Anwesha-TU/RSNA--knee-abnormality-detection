@@ -118,9 +118,8 @@ A PyTorch-based pipeline is being developed for:
 - PyTorch
 - torchvision
 - Scikit-learn
-- Visualization
 - Matplotlib
-Developed using - Kaggle, Jupyter Notebook
+- Developed using - Kaggle, Jupyter Notebook
 
 🧠 Planned Model Pipeline
 
@@ -161,6 +160,6 @@ https://www.kaggle.com/code/anwesha7002/rsna-knee
 
 👩‍💻 Author
 
-Anwesha Chakraborty
-Dr Soumyajit Mukhopadhyay
+- Anwesha Chakraborty
+- Dr Soumyajit Mukhopadhyay
 
