@@ -61,7 +61,7 @@ The available imaging series include:
 - Coronal
 - Axial
 
-and different MRI sequence characteristics such as fluid-sensitive and fat-suppressed imaging.
+and different MRI sequence characteristics such as fluid-sensitive , proton density, T1- weighted and fat-suppressed imaging.
 
 🔬 Current Work
 
@@ -162,3 +162,5 @@ https://www.kaggle.com/code/anwesha7002/rsna-knee
 👩‍💻 Author
 
 Anwesha Chakraborty
+Dr Soumyajit Mukhopadhyay
+
