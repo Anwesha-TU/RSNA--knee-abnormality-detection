@@ -63,50 +63,39 @@ The available imaging series include:
 
 and different MRI sequence characteristics such as fluid-sensitive , proton density, T1- weighted and fat-suppressed imaging.
 
-🔬 Current Work
+## 🔬 Current Progress
 
-The project is currently in the data exploration and preprocessing stage.
+The project is currently in the medical image preprocessing and pipeline development stage.
 
-1. Dataset Exploration
-- Examined the structure of train.csv and train_series.csv
-- Analyzed the number of studies and imaging series
-- Investigated anatomical planes and MRI sequence characteristics
-- Examined the distribution of the available abnormality labels
-- Identified the difference between labeled and unlabeled studies
-  
-2. DICOM Processing
+### Completed
+- Explored the RSNA Knee Abnormality Detection dataset.
+- Analyzed 4,407 knee MRI studies and 24,371 imaging series.
+- Identified 12 abnormality labels and examined the available labeled studies.
+- Explored MRI series based on anatomical plane, fluid sensitivity, and fat suppression.
+- Loaded and processed DICOM images using `pydicom`.
+- Inspected important DICOM metadata including:
+  - Magnetic field strength
+  - Slice thickness
+  - Pixel spacing
+  - Image orientation
+  - Image position
+  - Instance number
+- Implemented spatial/metadata-based DICOM slice ordering.
+- Converted individual DICOM slices into 3D MRI volumes.
+- Implemented percentile-based intensity normalization.
+- Visualized original and normalized MRI slices.
+- Started automated selection of suitable MRI series using dataset-provided imaging characteristics.
 
-- Using pydicom, MRI DICOM files are loaded and inspected to understand:
+### In Progress
+- Robust automated MRI series selection across studies.
+- PyTorch dataset and preprocessing pipeline.
+- Study-level multi-label CNN classification.
+- Model training and evaluation.
 
-    - Image dimensions
-    - Pixel data
-    - DICOM metadata
-    - MRI series information
-    - Individual slice visualization
-  
-3. MRI Visualization
-
-- Multiple DICOM slices from individual MRI series are visualized to inspect the anatomical content and understand the imaging structure before developing the model pipeline.
-
-4. Preprocessing — In Progress
-
-The next stage involves developing preprocessing steps for:
-
-- Robust DICOM slice ordering
-- MRI intensity normalization
-- Image resizing/cropping
-- Series selection
-- Conversion of DICOM data into model-ready tensors
-  
-5. Deep Learning Pipeline — In Progress
-
-A PyTorch-based pipeline is being developed for:
-
-- Study-level dataset creation
-- Train/validation splitting
-- MRI image preprocessing
-- Multi-label classification
-- CNN-based abnormality prediction
+### Planned
+- Train a baseline CNN for multi-label abnormality classification.
+- Evaluate model performance using appropriate multi-label classification metrics.
+- Perform error analysis and investigate model improvements.
   
 🛠️ Technologies & Libraries
 - Python
