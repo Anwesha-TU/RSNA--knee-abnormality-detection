@@ -503,24 +503,24 @@ Weighted Training
 The clean validation set remains separate from the training data.
 
 🛠️ Technologies & Libraries
-Programming Language:
+1.Programming Language:
 - Python
-Medical Imaging:
+2.Medical Imaging:
 - DICOM
 - pydicom
 - 3D MRI Processing
 - Medical Image Preprocessing
-Machine Learning / Deep Learning:
+3.Machine Learning / Deep Learning:
 - PyTorch
 - torchvision
 - Scikit-learn
 - NumPy
 - Pandas
-Computer Vision & Visualization:
+4.Computer Vision & Visualization:
 - OpenCV
 - Matplotlib
 - Grad-CAM
-Development:
+5.Development:
 - Kaggle
 - Jupyter Notebook
 - Git
