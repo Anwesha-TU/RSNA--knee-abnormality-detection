@@ -92,7 +92,7 @@ The MRI series contain different anatomical planes and sequence characteristics,
 The model predicts 12 abnormalities simultaneously.
 
 The problem is therefore represented as:
-
+```text
 MRI Study
     │
     ├── ACL
@@ -107,7 +107,7 @@ MRI Study
     ├── Baker's Cyst
     ├── Contusion
     └── Fracture
-    
+ ```   
 Each output represents an independent abnormality probability.
 
 🔬 Pipeline
