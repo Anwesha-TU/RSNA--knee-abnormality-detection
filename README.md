@@ -530,7 +530,8 @@ The clean validation set remains separate from the training data.
 - Jupyter Notebook
 - Git
 - GitHub
-📂 Project Structure
+
+##📂 Project Structure
 ```text
 RSNA-Knee-MRI-Abnormality-Detection/
 │
