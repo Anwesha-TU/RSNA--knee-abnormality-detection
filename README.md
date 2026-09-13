@@ -592,7 +592,7 @@ The overall pipeline can be summarized as:
                  Model Improvement
 
 The extended training pipeline additionally incorporates:
-
+```text
 Radiology Reports
        ↓
 Multilingual Report Processing
@@ -602,6 +602,7 @@ Weak Label Extraction
 Masked Weak Supervision
        ↓
 Clean + Weak Training Experiment
+```
 📌 Current Project Status
 
 Status: In Progress
