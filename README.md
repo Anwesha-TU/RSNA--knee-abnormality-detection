@@ -502,30 +502,34 @@ Weighted Training
 ```
 The clean validation set remains separate from the training data.
 
-🛠️ Technologies & Libraries
-1.Programming Language:
+## 🛠️ Technologies & Libraries
+
+### Programming Language
 - Python
-2.Medical Imaging:
+
+### Medical Imaging
 - DICOM
 - pydicom
 - 3D MRI Processing
 - Medical Image Preprocessing
-3.Machine Learning / Deep Learning:
+
+### Machine Learning & Deep Learning
 - PyTorch
 - torchvision
 - Scikit-learn
 - NumPy
 - Pandas
-4.Computer Vision & Visualization:
+
+### Computer Vision & Visualization
 - OpenCV
 - Matplotlib
 - Grad-CAM
-5.Development:
+
+### Development & Tools
 - Kaggle
 - Jupyter Notebook
 - Git
 - GitHub
-  
 📂 Project Structure
 ```text
 RSNA-Knee-MRI-Abnormality-Detection/
