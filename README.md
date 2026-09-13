@@ -531,7 +531,7 @@ The clean validation set remains separate from the training data.
 - Git
 - GitHub
 
-##📂 Project Structure
+## 📂 Project Structure
 ```text
 RSNA-Knee-MRI-Abnormality-Detection/
 │
