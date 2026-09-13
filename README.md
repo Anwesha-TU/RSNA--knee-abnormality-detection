@@ -146,7 +146,7 @@ When available, spatial information such as Image Position and Image Orientation
 3. 3D MRI Volume Construction
 
 Ordered DICOM slices are stacked to form a 3D MRI volume.
-
+```text
 DICOM Slice 1
       ↓
 DICOM Slice 2
@@ -158,7 +158,7 @@ DICOM Slice 3
 DICOM Slice N
       ↓
 3D MRI Volume
-
+```
 This allows the model to process volumetric anatomical information rather than treating every MRI slice independently.
 
 4. MRI Series Selection
@@ -203,9 +203,9 @@ For computational efficiency, the volumes are resized to a consistent representa
 
 The three input channels correspond to representative:
 
-- Channel 1 → Axial
-- Channel 2 → Coronal
-- Channel 3 → Sagittal
+- Channel 1 : Axial
+- Channel 2 : Coronal
+- Channel 3 : Sagittal
 
 Missing planes are handled without discarding the complete study.
 
@@ -214,7 +214,7 @@ Missing planes are handled without discarding the complete study.
 A custom PyTorch dataset was implemented to connect the processed MRI volumes with their corresponding study-level labels.
 
 The dataset provides:
-
+```text
 MRI Study
     ↓
 Axial Volume
@@ -224,7 +224,7 @@ Sagittal Volume
 Preprocessed Tensor
     ↓
 3D CNN
-
+```
 The final input tensor has the shape:
 
 [3, 32, 128, 128]
@@ -244,7 +244,7 @@ The model contains:
 - Dropout regularization
 
 Architecture overview:
-
+```text
 Multi-plane MRI Tensor
         │
         ▼
@@ -282,7 +282,7 @@ Multi-plane MRI Tensor
         │
         ▼
  12 Abnormality Outputs
-
+```
 The model is intentionally lightweight to allow experimentation in a CPU-only environment.
 
 ⚖️ Class Imbalance
@@ -304,13 +304,13 @@ This increases the contribution of positive examples from underrepresented abnor
 To prevent slices or series from the same study appearing across both training and validation data, splitting is performed at the study level.
 
 Current clean split:
-
+```text
 Officially labeled studies
         │
         ├── Training: 46 studies
         │
         └── Validation: 12 studies
-
+```
 - The validation studies are kept separate from the training data.
 
 This provides a study-level evaluation rather than evaluating individual slices independently.
@@ -322,7 +322,7 @@ The dataset contains radiology reports for many studies that do not have officia
 The reports include multiple languages, requiring a conservative rule-based approach to extract usable supervision.
 
 The weak-supervision pipeline:
-
+```text
 Radiology Report
        ↓
 Language / terminology handling
@@ -332,7 +332,7 @@ Abnormality-specific rules
 Confident Positive / Explicit Negative
        ↓
 Weak Label
-
+```
 Three states are used for weak labels:
 
 - 1     = Confident Positive
@@ -374,7 +374,7 @@ Because not every radiology report provides enough information for every abnorma
 Instead of treating these values as negative labels, a masked binary cross-entropy loss is used.
 
 Conceptually:
-
+```text
 Weak Label
      │
      ├── Confident Positive → Used for training
@@ -382,7 +382,7 @@ Weak Label
      ├── Explicit Negative   → Used for training
      │
      └── Uncertain           → Ignored
-
+```
 This prevents uncertain report interpretations from directly contributing incorrect gradients during training.
 
 🔬 Weak-Supervised Model Experiment
@@ -400,7 +400,7 @@ This prevents uncertain report interpretations from directly contributing incorr
 🔄 Combined Clean + Weak Training
 
 A combined training strategy is being investigated in which:
-
+```text
 Officially Labeled Studies
         +
 Weakly Labeled Studies
@@ -408,7 +408,7 @@ Weakly Labeled Studies
 Weighted Multi-label Training
         ↓
 12-class 3D CNN
-
+```
 - The clean studies provide all 12 official labels, while the weak studies provide a subset of confident report-derived labels.
 
 - The weak samples are assigned a lower training weight than the clean samples.
@@ -418,7 +418,7 @@ Weighted Multi-label Training
 🔍 Model Explainability
 
 3D Grad-CAM was implemented to inspect where the CNN produces strong activation for a selected abnormality.
-
+```text
 The workflow is:
 
 MRI Volume
@@ -434,7 +434,7 @@ Gradient-weighted Activations
 3D Grad-CAM
     ↓
 Attention Visualization
-
+```
 Grad-CAM is used as an interpretability tool to investigate model attention and potential failure cases.
 
 For example, attention can be visualized for predictions involving:
@@ -473,12 +473,13 @@ The project currently includes several experimental stages:
 - Experiment 1 — Baseline 3D CNN
 
 A lightweight 3D CNN trained using officially labeled studies.
-
+```text
 Official Labels
       ↓
 12-class 3D CNN
       ↓
 Study-level Evaluation
+```
 - Experiment 2 — Multi-plane 3D CNN
 
 A multi-plane architecture with separate processing branches for axial, coronal, and sagittal MRI data was investigated.
@@ -490,7 +491,7 @@ Radiology reports were converted into conservative weak labels and used to train
 - Experiment 4 — Clean + Weak Supervision
 
 A combined 12-output model is being investigated using:
-
+```text
 46 Clean Training Studies
         +
 3,290 Weakly Labeled Studies
@@ -498,7 +499,7 @@ A combined 12-output model is being investigated using:
 Weighted Training
         ↓
 12-class 3D CNN
-
+```
 The clean validation set remains separate from the training data.
 
 🛠️ Technologies & Libraries
@@ -524,13 +525,15 @@ Development:
 - Jupyter Notebook
 - Git
 - GitHub
+  
 📂 Project Structure
+```text
 RSNA-Knee-MRI-Abnormality-Detection/
 │
 ├── rsna-knee.ipynb
 ├── README.md
 └── ...
-
+```
 The main experimentation notebook contains the complete workflow from dataset exploration and DICOM preprocessing through model development and evaluation.
 
 🚀 Workflow Summary
